@@ -3,6 +3,10 @@ import shutil
 import time
 from math import ceil
 
+# This program is a folder splitter and merger. It is very handy for moving large amounts of files into subfolders
+# It has very simple user input and it is very fast
+# It also has automatic renaming of folders/files so there are never any duplicates
+
 # These functions below are for splitting folders
 def split_main():
     source_folder, destination_folder, files_per_folder, sub_folder, operation = split_user_input()

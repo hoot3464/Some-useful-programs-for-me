@@ -2,6 +2,8 @@ import os
 import shutil
 import time
 
+# See folder_operations.py
+
 def merge_folders(source_folders, destination_folder):
     
     os.makedirs(destination_folder, exist_ok=True)
@@ -14,11 +16,7 @@ def merge_folders(source_folders, destination_folder):
     for source_folder in source_folders:
         shutil.rmtree(source_folder)
 
-
-
-
-
-def merge_main():
+def main():
     
     source_folders = input("Enter source folder paths, separated by commas: ").split(',')
     destination_folder = input("Enter destination folder path: ")
@@ -32,4 +30,4 @@ def merge_main():
     print(f"Time taken: {time_taken:.2f} seconds")
     input("Press enter to exit")
     
-# main()
+main()
