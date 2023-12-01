@@ -13,19 +13,8 @@ def split_main():
     time_taken = end_time - start_time
     minutes, seconds = divmod(time_taken, 60)
 
-    if minutes > 0:
-        print("All operations have been completed successfully!")
-        print("Number of subfolders created: " + str(total_folders))
-        print("Total files moved: " + str(total_files))
-        print("Time taken: " + str(int(minutes)) + " minutes " + str(int(seconds)) + " seconds")
-        input("Press enter to exit")
-    else:
-        print("All operations have been completed successfully!")
-        print("Number of subfolders created: " + str(total_folders))
-        print("Total files moved: " + str(total_files))
-        print("Time taken: " + str(round(seconds, 2)) + " seconds")
-        input("Press enter to exit")
-             
+    split_finish(total_files, total_folders, minutes, seconds)
+            
 def split_user_input():
     
     print("Welcome to the folder splitter. Please enter the following folder paths.")
@@ -109,6 +98,21 @@ def split_remove_folder(source_folder):
     except OSError:
         print(f"Error: {source_folder} could not be removed. It may not be empty.")
 
+def split_finish(total_files, total_folders, minutes, seconds):
+    
+    if minutes > 0:
+        print("All operations have been completed successfully!")
+        print("Number of subfolders created: " + str(total_folders))
+        print("Total files moved: " + str(total_files))
+        print("Time taken: " + str(int(minutes)) + " minutes " + str(int(seconds)) + " seconds")
+        input("Press enter to exit")
+    else:
+        print("All operations have been completed successfully!")
+        print("Number of subfolders created: " + str(total_folders))
+        print("Total files moved: " + str(total_files))
+        print("Time taken: " + str(round(seconds, 2)) + " seconds")
+        input("Press enter to exit")
+
 # These functions are for merging folders
 def merge_folders(source_folders, destination_folder):
     
@@ -136,6 +140,10 @@ def merge_main():
     end_time = time.time() 
     time_taken = end_time - start_time
     minutes, seconds = divmod(time_taken, 60)
+    
+    merge_finish(total_files, destination_folder, minutes, seconds)
+    
+def merge_finish(total_files, destination_folder, minutes, seconds):
     
     if minutes > 0:
         print(f"{total_files} " + "files have been moved to " + destination_folder)
